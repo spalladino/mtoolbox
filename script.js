@@ -38,37 +38,32 @@ function submitForm() {
       "Authorization": "Basic " + btoa(USERNAME + ":" + password)
     },
     success: function(data) {
-      $('#response-message').val(data.length+" messages have been sent.");
-          $(function() {
-            $( "#dialog-confirm" ).dialog({
-              resizable: false,
-              height:140,
-              modal: true,
-              buttons: {
-              "Ok": function() {
-                $( this ).dialog( "close" );
-              }
-            }
-        });
-    });
-      console.log(data);
+      $('#response-message').val(data.length + " messages have been sent.");
+      $("#dialog-confirm").dialog({
+        resizable: false,
+        height:140,
+        modal: true,
+        buttons: {
+          "Ok": function() {
+            $(this).dialog("close");
+          }
+        }
+      });
     },
     error: function(err) {
-          $('#response-message').val('Error');
-          $(function() {
-            $( "#dialog-confirm" ).dialog({
-              resizable: false,
-              height:140,
-              modal: true,
-              buttons: {
-              "Ok": function() {
-                $( this ).dialog( "close" );
-              }
-            }
-        });
-    });
-        console.log(err);
-      }
+      console.log(err);
+      $('#response-message').val('Error');
+      $("#dialog-confirm").dialog({
+        resizable: false,
+        height:140,
+        modal: true,
+        buttons: {
+          "Ok": function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    }
   });
 };
 
