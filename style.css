@@ -2,7 +2,6 @@ body {
   padding-top: 50px;
 }
 
-.mtoolbox {
-  padding: 40px 15px;
-  text-align: center;
+.container {
+  width: 600px;
 }
