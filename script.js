@@ -38,10 +38,10 @@ function submitForm() {
       "Authorization": "Basic " + btoa(USERNAME + ":" + password)
     },
     success: function(data) {
-      $('#response-message').val(data.length + " messages have been sent.");
+      $('#response-message').text(data.length + " messages have been sent.");
       $("#dialog-confirm").dialog({
         resizable: false,
-        height:140,
+        height:180,
         modal: true,
         buttons: {
           "Ok": function() {
@@ -52,10 +52,10 @@ function submitForm() {
     },
     error: function(err) {
       console.log(err);
-      $('#response-message').val('Error');
+      $('#response-message').text('Error');
       $("#dialog-confirm").dialog({
         resizable: false,
-        height:140,
+        height:180,
         modal: true,
         buttons: {
           "Ok": function() {
