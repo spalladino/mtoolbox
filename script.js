@@ -38,7 +38,19 @@ function submitForm() {
       "Authorization": "Basic " + btoa(USERNAME + ":" + password)
     },
     success: function(data) {
-      alert("Success!");
+      $('#response-message').val(data.length+" messages have been sent.");
+          $(function() {
+            $( "#dialog-confirm" ).dialog({
+              resizable: false,
+              height:140,
+              modal: true,
+              buttons: {
+              "Ok": function() {
+                $( this ).dialog( "close" );
+              }
+            }
+        });
+    });
       console.log(data);
     },
     error: function(err) {
