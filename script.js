@@ -49,9 +49,12 @@ function submitForm() {
 
 // Loads locations from contacts table in mbuilder
 function loadLocations() {
-  if (!typeof(MBUILDER_CONTACTS) === 'undefined') {
-    $.get(MBUILDER_CONTACTS, {
-
+  if (typeof(MBUILDER_CONTACTS_TABLE) !== 'undefined') {
+    var url = MBUILDER_URL + 'api/applications/' + MBUILDER_APP_ID + '/tables/' + MBUILDER_CONTACTS_TABLE + '?access_token=' + MBUILDER_TOKEN;
+    $.get(url, null, function(data) {
+      var locations = _.pluck(data, 'Location').sort();
+      locations = _.uniq(locations, true);
+      console.log(locations);
     });
   }
 };
