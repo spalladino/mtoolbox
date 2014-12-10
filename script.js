@@ -1,12 +1,26 @@
 // Main function run on document load
 $(function() {
 
-  $(document).on('submit', 'form', function(evt) {
-    evt.preventDefault();
-    submitForm();
-  });
+  $(document)
+    // Handle form submit by sending message to mbuilder
+    .on('submit', 'form', function(evt) {
+      evt.preventDefault();
+      submitForm();
+    })
+    // Reload locations on change of access token
+    .on('change', '#token', function(evt) {
+      loadLocations($(this).val());
+    })
+    // or on reload
+    .on('click', '#reload-token', function(evt) {
+      evt.preventDefault();
+      loadLocations($('#token').val());
+    });
 
-  loadLocations();
+  // Load default value of access token from config if present
+  if (typeof(MBUILDER_TOKEN) !== 'undefined') {
+    $('#token').val(MBUILDER_TOKEN).trigger('change');
+  }
 
 });
 
@@ -68,13 +82,15 @@ function submitForm() {
 };
 
 // Loads locations from contacts table in mbuilder
-function loadLocations() {
-  if (typeof(MBUILDER_CONTACTS_TABLE) !== 'undefined') {
-    var url = MBUILDER_URL + 'api/applications/' + MBUILDER_APP_ID + '/tables/' + MBUILDER_CONTACTS_TABLE + '?access_token=' + MBUILDER_TOKEN;
-    $.get(url, null, function(data) {
-      var locations = _.pluck(data, 'Location').sort();
-      locations = _.uniq(locations, true);
-      console.log(locations);
+function loadLocations(token) {
+  var url = MBUILDER_URL + 'api/applications/' + MBUILDER_APP_ID + '/tables/' + MBUILDER_CONTACTS_TABLE + '?access_token=' + token;
+  $.get(url, null, function(data) {
+    var dropdown = $('#location');
+    var locations = _.pluck(data, 'Location').sort();
+    locations = _.uniq(locations, true);
+    dropdown.empty();
+    _.each(locations, function(location) {
+      $('<option>' + location + '</option>').appendTo(dropdown);
     });
-  }
+  });
 };
