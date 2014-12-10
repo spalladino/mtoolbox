@@ -11,3 +11,14 @@ This project uses [Twitter Bootstrap](http://getbootstrap.com/) for styling, and
 ## Development
 
 The most direct way to serve the application in development is by running `python -m SimpleHTTPServer` from within mtoolbox's folder, and then open a browser to `localhost:8000`.
+
+## Configuration
+
+Create a file `config.js` in the application folder with the following contents to access mbuilder:
+
+```
+USERNAME = "example@gmail.com";
+MBUILDER_TRIGGER = 'example';
+MBUILDER_APP_ID = 0;
+MBUILDER_URL = "http://mbuilder.instedd.org/";
+```
