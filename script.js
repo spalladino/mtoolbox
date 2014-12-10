@@ -15,8 +15,15 @@ $(function() {
     $.ajax({
       url: url,
       type: "POST",
-      username: USERNAME,
-      password: password,
+      dataType: 'json',
+      contentType: 'text/plain',
+      content: '',
+      xhrFields: {
+        withCredentials: false
+      },
+      headers: {
+        "Authorization": "Basic " + btoa(USERNAME + ":" + password)
+      },
       success: function(data) {
         alert("Success!");
         console.log(data);
