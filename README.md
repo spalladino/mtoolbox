@@ -7,3 +7,7 @@ mtoolbox is a client-side only web application that interfaces with [InSTEDD mbu
 ## Libraries
 
 This project uses [Twitter Bootstrap](http://getbootstrap.com/) for styling, and [jQuery](http://jquery.com/) as a Javascript library.
+
+## Development
+
+The most direct way to serve the application in development is by running `python -m SimpleHTTPServer` from within mtoolbox's folder, and then open a browser to `localhost:8000`.
