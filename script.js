@@ -1,11 +1,7 @@
-var USERNAME = "katukakaunda@gmail.com";
-var MBUILDER_TRIGGER = 'subscribers';
-var MBUILDER_APP_ID = 150;
-var MBUILDER_URL = "http://mbuilder.instedd.org/";
-
 $(function() {
 
-  $('form').on('submit', function(evt) {
+  $(document).on('submit', 'form', function(evt) {
+
     evt.preventDefault();
 
     var message = $('#message').val();
@@ -24,6 +20,10 @@ $(function() {
       success: function(data) {
         alert("Success!");
         console.log(data);
+      },
+      error: function(err) {
+        alert("Failure");
+        console.log(err);
       }
     });
 
