@@ -52,6 +52,7 @@ function submitForm() {
       "Authorization": "Basic " + btoa(USERNAME + ":" + password)
     },
     success: function(data) {
+      $('#message').val('');
       $('#response-message').text(data.length+" messages have been sent sucessfully!");
       $("#dialog-confirm").dialog({
         resizable: false,
