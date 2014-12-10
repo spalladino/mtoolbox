@@ -2,7 +2,7 @@
 
 Prototype mobile toolbox for sending SMS based health information to communities and workers using mBuilder. Developed during Epihack Tanzania on December 2014.
 
-mtoolbox is a client-side only web application that interfaces with [InSTEDD mbuilder](http://mbuilder.instedd.org) for sending SMS messages to population based on their location and role.
+mtoolbox is a client-side only web application that interfaces with [InSTEDD mbuilder](http://mbuilder.instedd.org) for sending SMS messages to population based on their location and role. The live app is running on [http://spalladino.github.io/mtoolbox/](http://spalladino.github.io/mtoolbox/) using the mbuilder account `epihack.tanzania`.
 
 ## Libraries
 
@@ -31,3 +31,4 @@ The application was developed by:
 * [Chibill](https://github.com/chibill)
 * [Mpoki](https://github.com/mpoki) from [SACIDS](http://sacids.org/)
 * [Santiago Palladino]((https://github.com/spalladino)) from [InSTEDD](http://instedd.org/)
+
