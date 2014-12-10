@@ -38,7 +38,7 @@ function submitForm() {
       "Authorization": "Basic " + btoa(USERNAME + ":" + password)
     },
     success: function(data) {
-      $('#response-message').val(data.length+" messages have been sent.");
+      $('#response-message').text(data.length+" messages have been sent.");
           $(function() {
             $( "#dialog-confirm" ).dialog({
               resizable: false,
@@ -54,7 +54,7 @@ function submitForm() {
       console.log(data);
     },
     error: function(err) {
-          $('#response-message').val('Error');
+          $('#response-message').text('Error');
           $(function() {
             $( "#dialog-confirm" ).dialog({
               resizable: false,
