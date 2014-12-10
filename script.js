@@ -29,7 +29,19 @@ $(function() {
         console.log(data);
       },
       error: function(err) {
-        alert("Failure");
+          $('#response-message').val('Error');
+          $(function() {
+            $( "#dialog-confirm" ).dialog({
+              resizable: false,
+              height:140,
+              modal: true,
+              buttons: {
+              "Ok": function() {
+                $( this ).dialog( "close" );
+              }
+            }
+        });
+    });
         console.log(err);
       }
     });
