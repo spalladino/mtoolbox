@@ -22,3 +22,12 @@ MBUILDER_TRIGGER = 'example';
 MBUILDER_APP_ID = 0;
 MBUILDER_URL = "http://mbuilder.instedd.org/";
 ```
+
+## Credits
+
+The application was developed by:
+
+* [Katuta Kaunda](https://github.com/GilchristK)
+* [Chibill](https://github.com/chibill)
+* [Mpoki](https://github.com/mpoki) from [SACIDS](http://sacids.org/)
+* [Santiago Palladino]((https://github.com/spalladino)) from [InSTEDD](http://instedd.org/)
