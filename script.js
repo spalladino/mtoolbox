@@ -92,15 +92,19 @@ function submitForm() {
 function loadLocations(token) {
   var url = MBUILDER_URL + 'api/applications/' + MBUILDER_APP_ID + '/tables/' + MBUILDER_CONTACTS_TABLE + '?access_token=' + token;
   $.get(url, null, function(data) {
-    var dropdown = $('#location');
-    var locations = _.pluck(data, 'Location').sort();
-    locations = _.uniq(locations, true);
-    dropdown.empty();
-    _.each(locations, function(location) {
-      $('<option>' + location + '</option>').appendTo(dropdown);
-    });
+    extractAndLoad('Location', $('#location'));
+    extractAndLoad('Role', $('#role'));
+
   });
 };
+function extractAndLoad(field, dropdown) {
+    var items = _.pluck(data, field).sort();
+    items = _.uniq(items, true);
+    dropdown.empty();
+    _.each(items, function(item) {
+      $('<option>' + item + '</option>').appendTo(dropdown);
+    });
+  }
 
 //handle tabs
  $(function() {
