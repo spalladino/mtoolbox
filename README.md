@@ -22,7 +22,6 @@ MBUILDER_TRIGGER = 'example';
 MBUILDER_APP_ID = 0;
 MBUILDER_URL = "http://mbuilder.instedd.org/";
 MBUILDER_CONTACTS_TABLE = "Contacts";
-MBUILDER_TOKEN = "ACCESSTOKEN";
 ```
 
 ## Credits
