@@ -41,6 +41,7 @@ function submitForm() {
     message: $('#message').val(),
     location: $('#location').val(),
     role: $('#role').val()
+    lang:$('#lang').val()
   };
 
   var url = MBUILDER_URL
