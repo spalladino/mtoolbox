@@ -39,7 +39,13 @@ function submitForm() {
     + '/trigger/' + MBUILDER_TRIGGER
     + '?' + $.param(data);
 
-  $.ajax({
+    var confirmation = confirmSubmit(data,url,password);
+
+    //if(!confirm('Are you sure?')){
+      //  return;
+   // }
+
+  /*$.ajax({
     url: url,
     type: "POST",
     dataType: 'json',
@@ -79,7 +85,7 @@ function submitForm() {
         }
       });
     }
-  });
+  });*/
 };
 
 // Loads locations from contacts table in mbuilder
@@ -100,3 +106,67 @@ function loadLocations(token) {
  $(function() {
 $( "#tabs" ).tabs();
 });
+
+ //confirmation
+ function confirmSubmit(data,url,password){
+    $("#response-message").text('Are you sure you want to send the message?');
+    $("#dialog-confirm").dialog({
+      resizable: false,
+      height:180,
+      modal: true,
+      buttons: {
+        "Ok": function() {
+          ajaxSubmit(data,url,password);
+        },
+        "Cancel":function(){
+          $(this).dialog("close");
+        }
+      }
+    });
+ }
+
+ //Ajax submit
+ function ajaxSubmit(data,url,password){
+    $.ajax({
+    url: url,
+    type: "POST",
+    dataType: 'json',
+    contentType: 'text/plain',
+    content: '',
+    xhrFields: {
+      withCredentials: false
+    },
+    headers: {
+      "Authorization": "Basic " + btoa(USERNAME + ":" + password)
+    },
+    success: function(data) {
+      //$('#message').val('');
+      $('#response-message').text(data.length+" messages have been sent sucessfully!");
+      $("#dialog-confirm").dialog({
+        resizable: false,
+        height:180,
+        modal: true,
+        buttons: {
+          "Ok": function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    },
+    error: function(err) {
+      console.log(err);
+      $('#response-message').text('Submit failed. Your password/username is incorrect.');
+      $("#dialog-confirm").dialog({
+        resizable: false,
+        height:180,
+        modal: true,
+        buttons: {
+          "Ok": function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+    }
+  });
+ }
+
