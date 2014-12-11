@@ -47,24 +47,30 @@
         </div>
       </div>
     </nav-->
-
     <div class="container">
-
-      <div class="mtoolbox">
+        <div class="mtoolbox">
         <h1>mtoolbox</h1>
         <p class="lead">Welcome to mtoolbox</p>
       </div>
+      <div role="tabpanel">
 
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
       <form role="form">
         <hr/>
         <h3>Authentication</h3>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="token">Access Token</label>
-          <input type="text" autocomplete="on" class="form-control" id="token" placeholder="Access Token">
+          <input type="password" class="form-control" id="password" placeholder="">
         </div>
         <hr/>
         <h3>Message</h3>
@@ -73,7 +79,7 @@
           <div class='input-group'>
             <select class="form-control" id='location'></select>
             <span class="input-group-btn">
-              <button class="btn" type="button" id="reload-token">
+              <button class="btn reload-dropdown" type="button">
                 <span class="glyphicon glyphicon-refresh"></span>
               </button>
             </span>
@@ -81,24 +87,49 @@
         </div>
         <div class="form-group">
           <label for="role">Recipients</label>
-          <select class="form-control" id="role">
-            <option value="chw">Community Health Workers</option>
-            <option value="officials">Officials</option>
-           </select>
+          <div class="input-group">
+            <select class="form-control" id="role"></select>
+            <span class="input-group-btn">
+              <button class="btn reload-dropdown" type="button">
+                <span class="glyphicon glyphicon-refresh"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lang">Language</label>
+          <div class="input-group">
+            <select class="form-control" id="lang"></select>
+            <span class="input-group-btn">
+              <button class="btn reload-dropdown" type="button">
+                <span class="glyphicon glyphicon-refresh"></span>
+              </button>
+            </span>
+          </div>
+        </div>
         </div>
         <div class="form-group">
           <label for="message">Message</label>
           <textarea class="form-control" rows="3" id="message" placeholder="Message"></textarea>
         </div>
-        <button type="submit" class="btn btn-lg active">Send</button>
+        <div class="actions">
+          <button type="submit" class="btn btn-lg active">Send</button>
+          <button type="submit" class="btn btn-lg" id="clear">Clear</button>
+        </div>
       </form>
-
     </div>
-    <div id="dialog-confirm" title="Response">
-      <p id="response-message">
-      </p>
+    <div role="tabpanel" class="tab-pane" id="profile"></div>
+    <div role="tabpanel" class="tab-pane" id="messages"></div>
+    <div role="tabpanel" class="tab-pane" id="settings"></div>
+  </div>
+  </div>
+  </div>
+
+  <div id="dialog-confirm" title="Message">
+    <p id="response-message">
+    </p>
   </div>
 
   </body>
-  
+
 </html>

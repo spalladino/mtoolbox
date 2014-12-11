@@ -22,7 +22,6 @@ MBUILDER_TRIGGER = 'example';
 MBUILDER_APP_ID = 0;
 MBUILDER_URL = "http://mbuilder.instedd.org/";
 MBUILDER_CONTACTS_TABLE = "Contacts";
-MBUILDER_TOKEN = "ACCESSTOKEN";
 ```
 
 ## Credits
@@ -31,6 +30,7 @@ The application was developed by:
 
 * [Katuta Kaunda](https://github.com/GilchristK)
 * [Chibill](https://github.com/chibill)
+* Godwin Barechi
 * [Mpoki](https://github.com/mpoki) from [SACIDS](http://sacids.org/)
 * [Santiago Palladino]((https://github.com/spalladino)) from [InSTEDD](http://instedd.org/)
 
