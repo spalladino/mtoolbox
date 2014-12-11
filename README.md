@@ -30,6 +30,7 @@ The application was developed by:
 
 * [Katuta Kaunda](https://github.com/GilchristK)
 * [Chibill](https://github.com/chibill)
+* Godwin Barechi
 * [Mpoki](https://github.com/mpoki) from [SACIDS](http://sacids.org/)
 * [Santiago Palladino]((https://github.com/spalladino)) from [InSTEDD](http://instedd.org/)
 
