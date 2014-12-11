@@ -40,7 +40,7 @@ function submitForm() {
   var data = {
     message: $('#message').val(),
     location: $('#location').val(),
-    role: $('#role').val()
+    role: $('#role').val(),
     lang:$('#lang').val()
   };
 
