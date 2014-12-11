@@ -20,6 +20,10 @@ $(function() {
     .on('click', '#clear', function(evt) {
       evt.preventDefault();
       // Clear form here!
+      $('#password').text('');
+      $('#location').text('');
+      $('#role').text('');
+      $('#message').text('');
     });
 
   // Also try to load if password is filled by browser
@@ -63,6 +67,7 @@ function loadFromMbuilder() {
     success: function(contacts) {
       extractAndLoad(contacts, 'Location', $('#location'));
       extractAndLoad(contacts, 'Role', $('#role'));
+      extractAndLoad(contacts, 'Language', $('#lang'));
     }
   });
 };
