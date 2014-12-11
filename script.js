@@ -7,20 +7,20 @@ $(function() {
       evt.preventDefault();
       submitForm();
     })
-    // Reload locations on change of access token
-    .on('change', '#token', function(evt) {
-      loadLocations($(this).val());
+    // Reload locations on change of password
+    .on('change', '#password', function(evt) {
+      loadLocations();
     })
-    // or on reload
-    .on('click', '#reload-token', function(evt) {
+    // or on manual reload
+    .on('click', '.reload-dropdown', function(evt) {
       evt.preventDefault();
-      loadLocations($('#token').val());
+      loadLocations();
     });
 
-  // Load default value of access token from config if present
-  if (typeof(MBUILDER_TOKEN) !== 'undefined') {
-    $('#token').val(MBUILDER_TOKEN).trigger('change');
-  }
+  // Also try to load if password is filled by browser
+  window.setTimeout(function() {
+    loadLocations();
+  }, 500);
 
 });
 
@@ -89,14 +89,30 @@ function submitForm() {
 };
 
 // Loads locations from contacts table in mbuilder
-function loadLocations(token) {
-  var url = MBUILDER_URL + 'api/applications/' + MBUILDER_APP_ID + '/tables/' + MBUILDER_CONTACTS_TABLE + '?access_token=' + token;
+function loadLocations() {
+  var password = $('#password').val();
+  if (password == '') return;
+
+  var url = 'http://mbuilder.instedd.org/api/applications/' + MBUILDER_APP_ID + '/tables/' + MBUILDER_CONTACTS_TABLE;
   $.get(url, null, function(data) {
-    extractAndLoad('Location', $('#location'));
-    extractAndLoad('Role', $('#role'));
+    
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    dataType: 'json',
+    headers: {
+      "Authorization": "Basic " + btoa(USERNAME + ":" + password)
+    },
+    success: function(data) {
+      extractAndLoad('Location', $('#location'));
+      extractAndLoad('Role', $('#role'));
+    }
 
   });
-};
+
+});
+}
 function extractAndLoad(field, dropdown) {
     var items = _.pluck(data, field).sort();
     items = _.uniq(items, true);

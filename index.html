@@ -47,31 +47,30 @@
         </div>
       </div>
     </nav-->
-    <div id="tabs" class="container">
-        <ul>
-          <li><a href="#tabs-1">Send</a></li>
-          <li><a href="#tabs-2">Contacts</a></li>
-          <li><a href="#tabs-3">Roles</a></li>
-        </ul>
-    <!--<div class="container">-->
-
-      <div class="mtoolbox">
+    <div class="container">
+        <div class="mtoolbox">
         <h1>mtoolbox</h1>
         <p class="lead">Welcome to mtoolbox</p>
       </div>
-      
-      
-      <div id="tabs-1">
-        <form role="form">
+      <div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <form role="form">
         <hr/>
         <h3>Authentication</h3>
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="token">Access Token</label>
-          <input type="text" autocomplete="on" class="form-control" id="token" placeholder="Access Token">
         </div>
         <hr/>
         <h3>Message</h3>
@@ -80,7 +79,7 @@
           <div class='input-group'>
             <select class="form-control" id='location'></select>
             <span class="input-group-btn">
-              <button class="btn" type="button" id="reload-token">
+              <button class="btn reload-dropdown" type="button">
                 <span class="glyphicon glyphicon-refresh"></span>
               </button>
             </span>
@@ -100,18 +99,27 @@
         <button type="submit" class="btn btn-lg active">Send</button>
         <button type="clear" class="btn btn-lg "></button>
       </form>
-      </div>
-      <div id="tabs-2">
-      </div>
-      <div id="tabs-3">
-      </div>
     </div>
-    <!--</div>-->
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div>
+
+</div>
+
+     
+      
+      
+     
+        
+      
+    </div>
+    
     <div id="dialog-confirm" title="Message">
       <p id="response-message">
       </p>
-  </div>
+    </div>
 
   </body>
-  
+
 </html>
