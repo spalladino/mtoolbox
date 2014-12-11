@@ -24,7 +24,24 @@ $(function() {
       $('#location').text('');
       $('#role').text('');
       $('#message').text('');
+    })
+
+    .on('click', '#send', function(evt) {
+      evt.preventDefault();
+      //$('#exampleModal').modal('hide');
+      alert("Testing");
     });
+
+    //modal box
+    /*$('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var recipient = button.data('whatever') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-title').text('New message to ' + recipient)
+      modal.find('.modal-body input').val(recipient)
+    });*/
 
   // Also try to load if password is filled by browser
   window.setTimeout(function() {
@@ -85,7 +102,7 @@ function extractAndLoad(contacts, field, dropdown) {
 
 // Confirmation before submitting the message
 function confirmSubmit(data,url,password){
-  $("#response-message").text('Are you sure you want to send the message?');
+  /*$("#response-message").text('Are you sure you want to send the message?');
   $("#dialog-confirm").dialog({
     resizable: false,
     height:180,
@@ -98,7 +115,8 @@ function confirmSubmit(data,url,password){
         $(this).dialog("close");
       }
     }
-  });
+  });*/
+  //$('#exampleModal').modal('show');
 }
 
 //Ajax submit
@@ -117,7 +135,7 @@ function ajaxSubmit(data,url,password) {
     },
     success: function(data) {
       //$('#message').val('');
-      $('#response-message').text(data.length+" messages have been sent sucessfully!");
+      /*$('#response-message').text(data.length+" messages have been sent sucessfully!");
       $("#dialog-confirm").dialog({
         resizable: false,
         height:180,
@@ -127,7 +145,8 @@ function ajaxSubmit(data,url,password) {
             $(this).dialog("close");
           }
         }
-      });
+      });*/
+      $('#exampleModal').modal('show');
     },
     error: function(err) {
       console.log(err);
