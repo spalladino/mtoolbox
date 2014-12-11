@@ -42,7 +42,7 @@ function submitForm() {
           $(function() {
             $( "#dialog-confirm" ).dialog({
               resizable: false,
-              height:180,
+              height:150,
               modal: true,
               buttons: {
               "Ok": function() {
@@ -58,7 +58,7 @@ function submitForm() {
           $(function() {
             $( "#dialog-confirm" ).dialog({
               resizable: false,
-              height:180,
+              height:150,
               modal: true,
               buttons: {
               "Ok": function() {
