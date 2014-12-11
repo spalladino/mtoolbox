@@ -67,7 +67,7 @@ function submitForm() {
     },
     error: function(err) {
       console.log(err);
-      $('#response-message').text('Error');
+      $('#response-message').text('Submit failed. Your password/username is incorrect.');
       $("#dialog-confirm").dialog({
         resizable: false,
         height:180,
@@ -95,3 +95,8 @@ function loadLocations(token) {
     });
   });
 };
+
+//handle tabs
+ $(function() {
+$( "#tabs" ).tabs();
+});

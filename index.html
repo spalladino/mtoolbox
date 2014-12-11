@@ -47,15 +47,22 @@
         </div>
       </div>
     </nav-->
-
-    <div class="container">
+    <div id="tabs" class="container">
+        <ul>
+          <li><a href="#tabs-1">Send</a></li>
+          <li><a href="#tabs-2">Contacts</a></li>
+          <li><a href="#tabs-3">Roles</a></li>
+        </ul>
+    <!--<div class="container">-->
 
       <div class="mtoolbox">
         <h1>mtoolbox</h1>
         <p class="lead">Welcome to mtoolbox</p>
       </div>
-
-      <form role="form">
+      
+      
+      <div id="tabs-1">
+        <form role="form">
         <hr/>
         <h3>Authentication</h3>
         <div class="form-group">
@@ -92,8 +99,9 @@
         </div>
         <button type="submit" class="btn btn-lg active">Send</button>
       </form>
-
+      </div>
     </div>
+    <!--</div>-->
     <div id="dialog-confirm" title="Response">
       <p id="response-message">
       </p>
