@@ -56,23 +56,34 @@
       </div>
 
       <form role="form">
+        <hr/>
+        <h3>Authentication</h3>
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" placeholder="Password">
         </div>
         <div class="form-group">
+          <label for="token">Access Token</label>
+          <input type="text" autocomplete="on" class="form-control" id="token" placeholder="Access Token">
+        </div>
+        <hr/>
+        <h3>Message</h3>
+        <div class="form-group">
           <label for="location">Location</label>
-          <select class="form-control">
-            <option>lusaka</option>
-            <option>ngorongoro</option>
-           </select>
-          <!--input type="text" class="form-control" id="location" placeholder="Location"-->
+          <div class='input-group'>
+            <select class="form-control" id='location'></select>
+            <span class="input-group-btn">
+              <button class="btn" type="button" id="reload-token">
+                <span class="glyphicon glyphicon-refresh"></span>
+              </button>
+            </span>
+          </div>
         </div>
         <div class="form-group">
-          <label for="role">Role</label>
-          <select class="form-control">
-            <option>chw</option>
-            <option>officials</option>
+          <label for="role">Recipients</label>
+          <select class="form-control" id="role">
+            <option value="chw">Community Health Workers</option>
+            <option value="officials">Officials</option>
            </select>
         </div>
         <div class="form-group">
